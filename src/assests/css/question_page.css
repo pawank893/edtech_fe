@@ -1,0 +1,162 @@
+.questionContainer{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.questionHeaderBar {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-section {
+    display: flex;
+    flex:1;
+    justify-content: center;
+}
+
+.topicName{
+    justify-content: start;
+    margin-left: 15px;
+    font-size: 22px;
+}
+
+.hintExempt{
+    display: flex;
+    margin-left: 5px;
+}
+
+.button{
+    padding : 5px 10px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.ghost-view{
+    display: flex;;
+    flex: 1;
+}
+
+.questionTextContainer {
+    display: flex;
+    flex: 3;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 10px;
+}
+.questionContent{
+    border: 1px solid black;
+    padding : 30px;
+    text-align: left;
+}
+
+.answerContent {
+    display: flex;
+    flex: 4;
+    justify-content: center;
+    align-items: center;
+}
+.optionsDiagram{
+    display: flex;
+    width : 50%;
+}
+
+.options {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.diagram{
+    display: flex;
+    flex: 1;
+}
+
+.question-diagram{
+    width: 30%;
+    height: 30%;
+}
+
+.questionFooter{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.answerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}

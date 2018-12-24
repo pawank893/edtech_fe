@@ -1,0 +1,130 @@
+body {
+    background: linear-gradient(#1b7aa9 0,#203669 100%);
+    color: #9d9d9d;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: 0;
+    position: relative;
+    max-width: none;
+    height: auto;
+    padding: 50px 0;
+}
+
+#public-header {
+    margin-bottom: 40px;
+}
+
+.center-text, .text-center {
+    text-align: center;
+}
+
+.entry-page {
+    width: 100%;
+    margin: auto;
+    color: white;
+}
+
+.entry-single-column {
+    width: 460px;
+}
+
+.form-box {
+    padding: 20px 36px;
+    border-radius: 3px;
+    background: white;
+    -webkit-box-shadow: 0 0 9px 0 rgba(80,111,120,0.2);
+    box-shadow: 0 0 9px 0 rgba(80,111,120,0.2);
+    margin-bottom: 15px;
+    color: #374e53;
+    position: relative;
+}
+.form-box h4 {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.flat-form-group {
+    position: relative;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+label {
+    font-size: 14px;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 10px;
+    font-weight: 600;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.flat-form-group label {
+    font-size: 16px;
+    position: absolute;
+    top: 9px;
+    z-index: 999;
+    background: white;
+    margin: 0;
+    color: #c7c7c7;
+    font-weight: 400;
+    pointer-events: none;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    text-align: left;
+}
+
+.flat-form-group label.small {
+    top: -14px;
+    font-size: 13px;
+    color: #374e53;
+}
+
+input[type="text"] {
+    display: inline-block;
+    height: auto;
+    padding: 8px 14px 9px;
+    width: auto;
+    max-width: 350px;
+    font-size: 15px;
+    line-height: 19px;
+    color: #27373b;
+    background-color: white;
+    background-image: none;
+    border: 1px solid #e1e3e5;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.form-control.flat-input {
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 2px solid #d2dadc;
+    padding: 10px 8px 10px 0;
+    height: auto;
+    font-size: 16px;
+    outline: 0;
+    background: white;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-box .form-group.submit-btn .form-box-btn {
+    margin-top: 15px;
+    width: 100%;
+    padding: 18px 20px;
+    border: 0;
+    background: #6fd350;
+    color: #2f6e1c;
+    font-weight: 600;
+    border-radius: 3px;
+    font-size: 17px;
+    box-shadow: 0 3px 0 #49ab2b;
+}
