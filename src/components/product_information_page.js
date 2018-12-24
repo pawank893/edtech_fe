@@ -9,9 +9,6 @@ export default class ProductInformationPage extends Component {
   render () {
     return (
         <div className="productInfoContainer">
-            <div className="headerBar">
-                <span className="textheading"> Heading </span>
-            </div>
 
             <div className="mainContainer">
                 <div className="productContainer">

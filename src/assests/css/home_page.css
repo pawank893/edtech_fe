@@ -1,9 +1,12 @@
 .homePageContainer{
-  width: 100%;
+  width: 60%;
   height: 100%;
   display: flex;
   flex: 1;
   flex-direction: column;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
 }
 .headerBar{
     display: flex;
@@ -19,10 +22,15 @@
   font-size: 30px;
 }
 
-.mainContainer{
+.homePageContainer .mainContainer{
     display: flex;
     flex-direction: column;
     flex: 10;
     justify-content: center;
     align-items: center;
+}
+
+.descriptionContainer {
+    font-size: 20px;
+    margin-top: 22px;
 }

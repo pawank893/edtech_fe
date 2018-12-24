@@ -6,12 +6,9 @@ export default class HomePage extends Component {
   render() {
     return (
       <div className="homePageContainer">
-        <div className="headerBar">
-          <span className="textheading">Heading</span>
-        </div>
         <div className="mainContainer">
           <div className="title">
-            Title
+            <h2>Title</h2>
           </div>
           <div className="imageContainer">
             <img  className="homePageImage" src={HomePageImage} alt="Home" />

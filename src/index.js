@@ -16,7 +16,7 @@ import QuestionPage from './components/question_page'
 const routing = (
   <Router>
     <div className="router">
-      <Route exact path="/" component={Login}/>
+      <Route exact path="/" component={HomePage}/>
       <Route path="/product" component={ProductInformationPage} />
       <Route path="/question" component={QuestionPage} />
       <Route path="/login" component={Login} />
