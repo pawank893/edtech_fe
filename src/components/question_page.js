@@ -12,14 +12,18 @@ export default class QuestionPage extends Component {
         <div className="questionContainer">
             <div className="questionHeaderBar">
                 <div className="header-section topicName">Topic</div>
-                <div className="header-section questionNumber"> 3 </div>
-                <div className="header-section timer">12:34 hours</div>
+                <div className="header-section questionNumber"> Q. No. 3 </div>
+                <div className="header-section help">
+                    <div className="button">
+                        <span>?</span>
+                    </div>
+                </div>
             </div>
-            <div className="hintExempt">
+            {/*<div className="hintExempt">
                 <div className="button hint">HINT</div>
                 <div className="button exempt">EXEMPT</div>
                 <div className="ghost-view"/>
-            </div>
+            </div>*/}
             <div className="questionTextContainer">
                 <span className="questionContent">
                     question question question question question question question
@@ -52,22 +56,15 @@ export default class QuestionPage extends Component {
                     </div>
                 </div>
             </div>
-            <div className="questionFooter">
-                <div className="info">
+            <div className="navigation">
+                <div className="prev">
                     <div className="button">
-                        <span>?</span>
+                        <span>PREVIOUS</span>
                     </div>
                 </div>
-                <div className="navigation">
-                    <div className="prev">
-                        <div className="button">
-                            <span>PREVIOUS</span>
-                        </div>
-                    </div>
-                    <div className="next">
-                        <div className="button">
-                            <span>NEXT</span>
-                        </div>
+                <div className="next">
+                    <div className="button">
+                        <span>NEXT</span>
                     </div>
                 </div>
             </div>
