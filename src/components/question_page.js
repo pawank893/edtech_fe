@@ -31,7 +31,7 @@ export default class QuestionPage extends Component {
                 <div className="optionsDiagram">
                     <div className="options">
                         <label class="container">One
-                          <input type="radio" checked="checked" name="radio" />
+                          <input type="radio" name="radio" />
                           <span class="checkmark"></span>
                         </label>
                         <label class="container">Two
