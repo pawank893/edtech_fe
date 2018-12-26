@@ -5,10 +5,9 @@ import "../assests/css/login.css";
 class Login extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      email: "",
-      password: ""
+        email: "",
+        password: ""
     };
   }
 
@@ -28,33 +27,26 @@ class Login extends Component {
       "username": this.state.email,
       "password": this.state.password
     } ;
-    return fetch('http://localhost:8002/login/', {
+    return fetch('http://www.localhost.com/api/login/', {
       method: 'POST',
+      credentials: 'include',
+      headers: {
+                'Content-Type': 'application/json',
+            },
       body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
+    }).then((response) => response.json())
       .then((responseJson) => {
-
-        this.setState({
-          isLoading: false
-        }, function(){
-
-        });
-
+          this.props.history.push('/question')
       })
       .catch((error) =>{
         console.error(error);
       });
   }
 
-  componentDidMount(){
-
-  }
-
   render() {
     return (
       <div className="login">
-        <div class="text-center" id="public-header">
+        <div className="text-center" id="public-header">
           <div id="logo-center">
             <img src="https://cdn.getvero.com/assets/logo-white-2dde46947ccac730f7d24ac88f4a08c8.svg" alt="Logo white"/>
           </div>
@@ -65,18 +57,18 @@ class Login extends Component {
                     Sign in to your account
                 </h4>
 
-                <form class="new_user" id="new_user" accept-charset="UTF-8" onSubmit={this.handleSubmit}>
+                <form className="new_user" id="new_user" onSubmit={this.handleSubmit}>
                     <meta name="csrf-token" content=""/>
-                    <div class="flat-form-group">
-                        <label class="small">Email</label>
-                        <input class="form-control flat-input" type="text" value="" name="user[email]" id="user_email" value={this.state.email} onChange={this.handleChange}/>
+                    <div className="flat-form-group">
+                        <label className="small">Email</label>
+                        <input className="form-control flat-input" type="text" id="email"  onChange={this.handleChange}/>
                     </div>
-                    <div class="flat-form-group">
-                        <label class="small">Password</label>
-                        <input class="form-control flat-input" type="password" name="user[password]" id="user_password" value={this.state.password} onChange={this.handleChange}/>
+                    <div className="flat-form-group">
+                        <label className="small">Password</label>
+                        <input className="form-control flat-input" type="password" id="password"  onChange={this.handleChange}/>
                     </div>
-                    <div class="form-group submit-btn">
-                        <input type="submit" name="commit" value="Sign In" class="form-box-btn" disabled={!this.validateForm()}/>
+                    <div className="form-group submit-btn">
+                        <input type="submit" name="commit" value="Sign In" className="form-box-btn" disabled={!this.validateForm()}/>
                     </div>
                 </form>
             </div>

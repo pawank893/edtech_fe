@@ -4,15 +4,88 @@ import Prev from '../assests/images/prev.jpeg'
 import Info from '../assests/images/prev.jpeg'
 import Diagram from '../assests/images/homePageImage.jpeg'
 import '../assests/css/question_page.css'
+import Cookies from 'js-cookie';
 
 export default class QuestionPage extends Component {
+
+    constructor(props) {
+      super(props);
+      this.state = {
+          questionNo: 0,
+          topic: "",
+          question: "",
+          options: [],
+          image:""
+      };
+    }
+
+    getQuestion = (data) => {
+        fetch('http://www.localhost.com/api/question/', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': Cookies.get('csrftoken')
+                    },
+            body: JSON.stringify(data),
+        }).then((response) => {
+            if (response.status === 200) {
+                return response.json();
+            } else {
+                throw new Error('Something went wrong');
+            }
+        }).then((responseJson) => {
+              this.setData(responseJson)
+        }).catch((error) =>{
+            this.props.history.push('/login')
+            console.error(error);
+        });
+     }
+
+    setData = (data) => {
+        this.setState({
+            topic: data.topic,
+            question: data.question,
+            options: data.options,
+            image: data.image,
+            questionNo: data.question_no
+        })
+    }
+
+    isFirstQuestionPage = () => {
+        return this.state.questionNo == 1
+    }
+
+    nextQuestion = event => {
+      event.preventDefault();
+      const data = {
+        "action":"next"
+      } ;
+      this.getQuestion(data)
+    }
+
+    prevQuestion = event => {
+      event.preventDefault();
+      console.log(this.state.questionNo);
+      const data = {
+        "action":"prev"
+      } ;
+      this.getQuestion(data)
+    }
+
+    componentDidMount() {
+        const data = {
+          "q_no":this.state.questionNo
+        } ;
+        this.getQuestion(data)
+      }
 
   render () {
     return (
         <div className="questionContainer">
             <div className="questionHeaderBar">
-                <div className="header-section topicName">Topic</div>
-                <div className="header-section questionNumber"> Q. No. 3 </div>
+                <div className="header-section topicName">{ this.state.topic }</div>
+                <div className="header-section questionNumber"> Q. No. { this.state.questionNo } </div>
                 <div className="header-section help">
                     <div className="button">
                         <span>?</span>
@@ -26,45 +99,43 @@ export default class QuestionPage extends Component {
             </div>*/}
             <div className="questionTextContainer">
                 <span className="questionContent">
-                    question question question question question question question
-                    question question question question question question question question question question
-                    question question question question question
+                    { this.state.question }
                 </span>
             </div>
             <div className="answerContent">
                 <div className="optionsDiagram">
                     <div className="options">
-                        <label class="container">One
+                        <label className="container">{ this.state.options[0] }
                           <input type="radio" name="radio" />
-                          <span class="checkmark"></span>
+                          <span className="checkmark"></span>
                         </label>
-                        <label class="container">Two
+                        <label className="container">{ this.state.options[1] }
                           <input type="radio" name="radio" />
-                          <span class="checkmark"></span>
+                          <span className="checkmark"></span>
                         </label>
-                        <label class="container">Three
+                        <label className="container">{ this.state.options[2] }
                           <input type="radio" name="radio" />
-                          <span class="checkmark"></span>
+                          <span className="checkmark"></span>
                         </label>
-                        <label class="container">Four
+                        <label className="container">{ this.state.options[3] }
                           <input type="radio" name="radio" />
-                          <span class="checkmark"></span>
+                          <span className="checkmark"></span>
                         </label>
                     </div>
                     <div className="diagram">
-                        <img src={Diagram} alt="Diagram" className="question-image"/>
+                        <img src={ this.state.image } alt="Diagram" className="question-image"/>
                     </div>
                 </div>
             </div>
             <div className="navigation">
                 <div className="prev">
-                    <div className="button">
-                        <span>PREVIOUS</span>
+                    <div className="form-group submit-btn" onClick={this.prevQuestion}>
+                        <input type="submit" name="commit" value="Prev" className="form-box-btn" disabled={this.isFirstQuestionPage()}/>
                     </div>
                 </div>
                 <div className="next">
-                    <div className="button">
-                        <span>NEXT</span>
+                    <div className="form-group submit-btn" onClick={this.nextQuestion}>
+                        <input type="submit" name="commit" value="Next" className="form-box-btn" />
                     </div>
                 </div>
             </div>
