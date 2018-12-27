@@ -1,0 +1,22 @@
+.testSeriesCard {
+    box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,.16);
+    padding: 35px;
+    margin: 20px;
+}
+.testSeriesCardBox {
+    padding: 45px 36px;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 0 0 9px 0 rgba(80,111,120,0.2);
+    margin-bottom: 15px;
+    color: #374e53;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+.testSeries .entry-single-column {
+    min-width: 460px;
+    max-width: 650px;
+}

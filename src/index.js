@@ -11,17 +11,25 @@ import './assests/css/common.css'
 import HomePage from './components/home_page'
 import ProductInformationPage from './components/product_information_page'
 import QuestionPage from './components/question_page'
+import ResultPage from './components/result'
+import TestSeriesPage from './components/test_series'
+import Header from './components/header'
 
 
 const routing = (
-  <Router>
-    <div className="router">
-      <Route exact path="/" component={HomePage}/>
-      <Route path="/product" component={ProductInformationPage} />
-      <Route path="/question" component={QuestionPage} />
-      <Route path="/login" component={Login} />
-    </div>
-  </Router>
+    <div>
+    <Header />
+      <Router>
+        <div className="router">
+          <Route exact path="/" component={HomePage}/>
+          <Route path="/product" component={ProductInformationPage} />
+          <Route path="/question" component={QuestionPage} />
+          <Route path="/login" component={Login} />
+          <Route path="/result" component={ResultPage} />
+          <Route path="/test-series" component={TestSeriesPage} />
+        </div>
+      </Router>
+     </div>
 )
 
 

@@ -20,7 +20,7 @@ export default class QuestionPage extends Component {
     }
 
     getQuestion = (data) => {
-        fetch('http://www.localhost.com/api/question/', {
+        return fetch('http://www.localhost.com/api/question/', {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -29,7 +29,11 @@ export default class QuestionPage extends Component {
                     },
             body: JSON.stringify(data),
         }).then((response) => {
-            if (response.status === 200) {
+            if (response.status === 403) {
+                throw new Error("User not logged in. Please login");
+            } else if (response.status === 204) {
+                this.props.history.push('/result')
+            } else if (response.status === 200) {
                 return response.json();
             } else {
                 throw new Error('Something went wrong');
@@ -37,7 +41,9 @@ export default class QuestionPage extends Component {
         }).then((responseJson) => {
               this.setData(responseJson)
         }).catch((error) =>{
-            this.props.history.push('/login')
+            if (error.message == "User not logged in. Please login") {
+                this.props.history.push('/login')
+            }
             console.error(error);
         });
      }
@@ -50,6 +56,13 @@ export default class QuestionPage extends Component {
             image: data.image,
             questionNo: data.question_no
         })
+        data.options.map((d, idx) => {
+            if(d['answered']) {
+                this.setState({
+                    answer:d.id
+                })
+            }
+        })
     }
 
     isFirstQuestionPage = () => {
@@ -59,7 +72,8 @@ export default class QuestionPage extends Component {
     nextQuestion = event => {
       event.preventDefault();
       const data = {
-        "action":"next"
+        "action":"next",
+        "answer": this.state.answer
       } ;
       this.getQuestion(data)
     }
@@ -68,7 +82,8 @@ export default class QuestionPage extends Component {
       event.preventDefault();
       console.log(this.state.questionNo);
       const data = {
-        "action":"prev"
+        "action":"prev",
+        "answer": this.state.answer
       } ;
       this.getQuestion(data)
     }
@@ -77,8 +92,15 @@ export default class QuestionPage extends Component {
         const data = {
           "q_no":this.state.questionNo
         } ;
-        this.getQuestion(data)
-      }
+        this.getQuestion(data);
+
+    }
+
+    handleOnChange = (e) => {
+        // e.preventDefault();
+        console.log('selected option', e.target.value);
+        this.setState({ answer: e.target.value});
+    }
 
   render () {
     return (
@@ -105,22 +127,14 @@ export default class QuestionPage extends Component {
             <div className="answerContent">
                 <div className="optionsDiagram">
                     <div className="options">
-                        <label className="container">{ this.state.options[0] }
-                          <input type="radio" name="radio" />
-                          <span className="checkmark"></span>
-                        </label>
-                        <label className="container">{ this.state.options[1] }
-                          <input type="radio" name="radio" />
-                          <span className="checkmark"></span>
-                        </label>
-                        <label className="container">{ this.state.options[2] }
-                          <input type="radio" name="radio" />
-                          <span className="checkmark"></span>
-                        </label>
-                        <label className="container">{ this.state.options[3] }
-                          <input type="radio" name="radio" />
-                          <span className="checkmark"></span>
-                        </label>
+                        {this.state.options.map((d, idx) => {
+                            return (
+                                <label className="container" key={d.id} >{ d.choice }
+                                    <input type="radio" name="radio" key={d.id} value={ d.id } checked={d.id == this.state.answer} onChange={(e) => this.handleOnChange(e)}/>
+                                    <span className="checkmark"></span>
+                                </label>
+                            )
+                        })}
                     </div>
                     <div className="diagram">
                         <img src={ this.state.image } alt="Diagram" className="question-image"/>

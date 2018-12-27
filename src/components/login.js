@@ -36,7 +36,7 @@ class Login extends Component {
       body: JSON.stringify(data),
     }).then((response) => response.json())
       .then((responseJson) => {
-          this.props.history.push('/question')
+          this.props.history.push('/test-series')
       })
       .catch((error) =>{
         console.error(error);

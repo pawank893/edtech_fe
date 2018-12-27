@@ -1,0 +1,17 @@
+.result .values {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.result .result-label{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.result .result-value {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
