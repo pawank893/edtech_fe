@@ -1,22 +1,43 @@
-.testSeriesCard {
-    box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,.16);
-    padding: 35px;
-    margin: 20px;
+.testSeries-container{
+    display: flex;
+    flex : 1;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
 }
-.testSeriesCardBox {
-    padding: 45px 36px;
-    border-radius: 3px;
-    background: white;
-    box-shadow: 0 0 9px 0 rgba(80,111,120,0.2);
-    margin-bottom: 15px;
-    color: #374e53;
-    position: relative;
+
+.test-entry-page{
+    min-width: 40vw;
+    max-width: 60vw;
     display: flex;
     justify-content: center;
-
+    align-items: center;
+    flex-direction: column;
 }
 
-.testSeries .entry-single-column {
-    min-width: 460px;
-    max-width: 650px;
+.select-test{
+    color: black;
+    opacity: 0.6;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.testSeriesCard {
+    border : 1px solid #ececec;
+    padding: 20px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 rgba(244, 244, 244, 1);
+}
+.testSeriesCardBox {
+    padding : 3em;
+    border-radius: 9px;
+    background: white;
+    border : 2px solid #ececec;
+    color: #374e53;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width : 100%;
 }

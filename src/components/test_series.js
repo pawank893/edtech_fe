@@ -74,14 +74,9 @@ export default class TestSeriesPage extends Component {
   render () {
 
     return (
-      <div className="testSeries">
-        <div className="text-center" id="public-header">
-          <div id="logo-center">
-            <img src="https://cdn.getvero.com/assets/logo-white-2dde46947ccac730f7d24ac88f4a08c8.svg" alt="Logo white"/>
-          </div>
-        </div>
-        <div className="entry-page entry-single-column" >
-            <h4 className="center-text">
+      <div className="testSeries-container">
+        <div className="test-entry-page test-entry-single-column" >
+            <h4 className="select-test">
                 Select any 1 test series
             </h4>
             <div className="testSeriesCardBox">

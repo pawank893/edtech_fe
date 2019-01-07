@@ -17,7 +17,7 @@ import Header from './components/header'
 
 
 const routing = (
-    <div>
+    <div className='appMainConatiner'>
     <Header />
       <Router>
         <div className="router">

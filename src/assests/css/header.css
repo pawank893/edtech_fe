@@ -1,0 +1,34 @@
+.headerContainer{
+    height: 8vh;
+    display: flex;
+    flex : 1;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border-bottom:  solid 1px black;
+    background: linear-gradient(#1b7aa9 0,#203669 100%);
+}
+
+.headerElem{
+  display: flex;
+  flex: 1;
+}
+
+.homeContainer{
+
+    justify-content: flex-start;
+}
+
+.testSeriesContainer{
+    justify-content: center;
+}
+
+.loginContainer{
+    justify-content: flex-end;
+}
+
+.text{
+    cursor: pointer;
+    font-size: 18px;
+    color : white;
+}
