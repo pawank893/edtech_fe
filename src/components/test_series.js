@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../assests/css/test-series.css';
 import Cookies from 'js-cookie';
+import Header from './header';
 
 export default class TestSeriesPage extends Component {
 
@@ -12,7 +13,7 @@ export default class TestSeriesPage extends Component {
     }
 
     componentDidMount = (event) => {
-      return fetch('http://www.localhost.com/api/test-series/', {
+      return fetch('http://localhost:8002/api/test-series/', {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -34,7 +35,7 @@ export default class TestSeriesPage extends Component {
     }
 
     startTestSeries = (data) => {
-      return fetch('http://www.localhost.com/api/test-series/', {
+      return fetch('http://localhost:8002/api/test-series/', {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -75,6 +76,9 @@ export default class TestSeriesPage extends Component {
 
     return (
       <div className="testSeries-container">
+        <div className="header-div">
+          <Header />
+        </div>
         <div className="test-entry-page test-entry-single-column" >
             <h4 className="select-test">
                 Select any 1 test series

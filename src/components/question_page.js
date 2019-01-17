@@ -20,7 +20,7 @@ export default class QuestionPage extends Component {
     }
 
     getQuestion = (data) => {
-        return fetch('http://www.localhost.com/api/question/', {
+        return fetch('http://localhost:8002/api/question/', {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -105,6 +105,9 @@ export default class QuestionPage extends Component {
   render () {
     return (
         <div className="questionContainer">
+        <div className="logout">
+          <span>Logout</span>
+        </div>
             <div className="questionHeaderBar">
                 <div className="header-section topicName">{ this.state.topic }</div>
                 <div className="header-section questionNumber"> Q. No. { this.state.questionNo } </div>
@@ -136,9 +139,12 @@ export default class QuestionPage extends Component {
                             )
                         })}
                     </div>
-                    <div className="diagram">
-                        <img src={ this.state.image } alt="Diagram" className="question-image"/>
-                    </div>
+                    {
+                      this.state.image ?
+                      <div className="diagram">
+                          <img src={ this.state.image } alt="Diagram" className="question-image"/>
+                      </div>: null
+                  }
                 </div>
             </div>
             <div className="navigation">

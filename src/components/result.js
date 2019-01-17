@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "../assests/css/result.css";
 import Cookies from 'js-cookie';
+import Header from './header';
+
 
 class Result extends Component {
   constructor(props) {
@@ -15,7 +17,7 @@ class Result extends Component {
   }
 
   componentDidMount = (event) => {
-    return fetch('http://www.localhost.com/api/result/', {
+    return fetch('http://localhost:8002/api/result/', {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -49,6 +51,9 @@ class Result extends Component {
   render() {
     return (
       <div className="result">
+        <div className="header-div">
+          <Header />
+        </div>
         <div className="text-center" id="public-header">
           <div id="logo-center">
             <img src="https://cdn.getvero.com/assets/logo-white-2dde46947ccac730f7d24ac88f4a08c8.svg" alt="Logo white"/>

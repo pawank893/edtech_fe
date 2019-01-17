@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import Header from './header';
 import "../assests/css/login.css";
 
 class Login extends Component {
@@ -27,7 +28,7 @@ class Login extends Component {
       "username": this.state.email,
       "password": this.state.password
     } ;
-    return fetch('http://www.localhost.com/api/login/', {
+    return fetch('http://localhost:8002/api/login/', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -46,6 +47,9 @@ class Login extends Component {
   render() {
     return (
       <div className="login">
+      <div className="header-div">
+        <Header />
+      </div>
         <div className="text-center" id="public-header">
           <div id="logo-center">
             <img src="https://cdn.getvero.com/assets/logo-white-2dde46947ccac730f7d24ac88f4a08c8.svg" alt="Logo white"/>

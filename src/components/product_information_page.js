@@ -3,13 +3,17 @@ import Image1 from '../assests/images/homePageImage.jpeg'
 import Image2 from '../assests/images/homePageImage.jpeg'
 import Image3 from '../assests/images/homePageImage.jpeg'
 import '../assests/css/product_information_page.css'
+import Header from './header';
+
 
 export default class ProductInformationPage extends Component {
 
   render () {
     return (
         <div className="productInfoContainer">
-
+        <div className="header-div">
+          <Header />
+        </div>
             <div className="mainContainer">
                 <div className="productContainer">
                     <div className="productTitle">

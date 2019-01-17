@@ -18,7 +18,6 @@ import Header from './components/header'
 
 const routing = (
     <div className='appMainConatiner'>
-    <Header />
       <Router>
         <div className="router">
           <Route exact path="/" component={HomePage}/>
