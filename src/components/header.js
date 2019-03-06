@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 import '../assests/css/header.css'
+import { Link } from 'react-router-dom';
 
 export default class Header extends Component {
   render() {
     return (
         <div className="headerContainer">
+
             <div className="headerElem homeContainer">
-                <span className="text home">Home</span>
+                <Link to="/">
+                    <span className="text home">Home</span>
+                </Link>
             </div>
+
+
             <div className="headerElem testSeriesContainer">
-                <span className="text testSeries" >Test series</span>
+                <Link to="/test-series">
+                    <span className="text testSeries" >Test series</span>
+                </Link>
             </div>
+
+
             <div className="headerElem loginContainer">
-                <span className="text logintext">Login</span>
+                <Link to="/login">
+                    <span className="text logintext">Login</span>
+                </Link>
             </div>
+
         </div>
     )
   }
