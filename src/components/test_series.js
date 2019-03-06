@@ -12,7 +12,7 @@ export default class TestSeriesPage extends Component {
     }
 
     componentDidMount = (event) => {
-      return fetch('http://www.localhost.com/api/test-series/', {
+      return fetch('18.222.218.229/api/test-series/', {
         method: 'GET',
         credentials: 'include',
         headers: {

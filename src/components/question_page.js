@@ -20,7 +20,7 @@ export default class QuestionPage extends Component {
     }
 
     getQuestion = (data) => {
-        return fetch('http://www.localhost.com/api/question/', {
+        return fetch('18.222.218.229/api/question/', {
             method: 'POST',
             credentials: 'include',
             headers: {
