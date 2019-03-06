@@ -35,7 +35,7 @@ export default class TestSeriesPage extends Component {
     }
 
     startTestSeries = (data) => {
-      return fetch('http://localhost:8002/api/test-series/', {
+      return fetch('/api/test-series/', {
         method: 'POST',
         credentials: 'include',
         headers: {
