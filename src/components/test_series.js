@@ -13,7 +13,7 @@ export default class TestSeriesPage extends Component {
     }
 
     componentDidMount = (event) => {
-      return fetch('18.222.218.229/api/test-series/', {
+      return fetch('/api/test-series/', {
         method: 'GET',
         credentials: 'include',
         headers: {

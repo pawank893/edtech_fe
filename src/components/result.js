@@ -17,7 +17,7 @@ class Result extends Component {
   }
 
   componentDidMount = (event) => {
-    return fetch('18.222.218.229/api/result/', {
+    return fetch('/api/result/', {
       method: 'GET',
       credentials: 'include',
       headers: {

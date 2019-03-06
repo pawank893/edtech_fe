@@ -28,7 +28,7 @@ class Login extends Component {
       "username": this.state.email,
       "password": this.state.password
     } ;
-    return fetch('18.222.218.229/api/login/', {
+    return fetch('/api/login/', {
       method: 'POST',
       credentials: 'include',
       headers: {
