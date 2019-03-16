@@ -130,7 +130,7 @@ export default class QuestionPage extends Component {
                     <div className="options">
                         {this.state.options.map((d, idx) => {
                             return (
-                                <label className="container" key={d.id} >  {d.type == "Image" ? <img src={ d.choice } alt="Diagram" className="question-image"/> : <span>{ d.choice }</span>}
+                                <label className="container" key={d.id} >  {d.type == "Image" ? <img src={ d.choice } alt="Diagram" className="question-image"/> : <span>{ReactHtmlParser(d.choice)}</span>}
                                     <input type="radio" name="radio" key={d.id} value={ d.id } checked={d.id == this.state.answer} onChange={(e) => this.handleOnChange(e)}/>
                                     <span className="checkmark"></span>
                                 </label>
