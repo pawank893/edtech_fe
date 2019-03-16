@@ -1,10 +1,11 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import Next from '../assests/images/next.jpeg'
 import Prev from '../assests/images/prev.jpeg'
 import Info from '../assests/images/prev.jpeg'
 import Diagram from '../assests/images/homePageImage.jpeg'
 import '../assests/css/question_page.css'
 import Cookies from 'js-cookie';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 export default class QuestionPage extends Component {
 
@@ -105,9 +106,6 @@ export default class QuestionPage extends Component {
   render () {
     return (
         <div className="questionContainer">
-        <div className="logout">
-          <span>Logout</span>
-        </div>
             <div className="questionHeaderBar">
                 <div className="header-section topicName">{ this.state.topic }</div>
                 <div className="header-section questionNumber"> Q. No. { this.state.questionNo } </div>
@@ -123,8 +121,8 @@ export default class QuestionPage extends Component {
                 <div className="ghost-view"/>
             </div>*/}
             <div className="questionTextContainer">
-                <span className="questionContent">
-                    { this.state.question }
+                <span className="questionContent supsub">
+                    {ReactHtmlParser(this.state.question)}
                 </span>
             </div>
             <div className="answerContent">

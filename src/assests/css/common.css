@@ -139,3 +139,8 @@ input[type="text"] {
     flex: 1;
     justify-content: center;
 }
+
+.supsub {
+    margin: -8px;
+    padding-right: 10px;
+}
