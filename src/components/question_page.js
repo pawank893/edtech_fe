@@ -1,8 +1,4 @@
 import React, {Component, Fragment} from 'react'
-import Next from '../assests/images/next.jpeg'
-import Prev from '../assests/images/prev.jpeg'
-import Info from '../assests/images/prev.jpeg'
-import Diagram from '../assests/images/homePageImage.jpeg'
 import '../assests/css/question_page.css'
 import Cookies from 'js-cookie';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
@@ -16,7 +12,8 @@ export default class QuestionPage extends Component {
           topic: "",
           question: "",
           options: [],
-          image:""
+          image:"",
+          firstQuestionPage: false
       };
     }
 
@@ -55,7 +52,8 @@ export default class QuestionPage extends Component {
             question: data.question,
             options: data.options,
             image: data.image,
-            questionNo: data.question_no
+            questionNo: data.question_no,
+            firstQuestionPage: data.question_no == 1
         })
         data.options.map((d, idx) => {
             if(d['answered']) {
@@ -67,7 +65,9 @@ export default class QuestionPage extends Component {
     }
 
     isFirstQuestionPage = () => {
-        return this.state.questionNo == 1
+        // debugger;
+        // return this.state.questionNo == 1
+        this.setState({ firstQuestionPage: this.state.questionNo == 1});
     }
 
     nextQuestion = event => {
@@ -148,7 +148,7 @@ export default class QuestionPage extends Component {
             <div className="navigation">
                 <div className="prev">
                     <div className="form-group submit-btn" onClick={this.prevQuestion}>
-                        <input type="submit" name="commit" value="Prev" className="form-box-btn" disabled={this.isFirstQuestionPage()}/>
+                        <input type="submit" name="commit" value="Prev" className={ this.state.firstQuestionPage ? "form-box-btn hiddenElem" : "form-box-btn"}  disabled={this.state.firstQuestionPage}/>
                     </div>
                 </div>
                 <div className="next">

@@ -207,3 +207,7 @@
     border-radius: 3px;
     font-size: 17px;
 }
+
+.hiddenElem {
+    visibility: hidden
+}

@@ -14,6 +14,7 @@ import QuestionPage from './components/question_page'
 import ResultPage from './components/result'
 import TestSeriesPage from './components/test_series'
 import Header from './components/header'
+import Logout from './components/logout'
 
 
 const routing = (
@@ -24,6 +25,7 @@ const routing = (
           <Route path="/product" component={ProductInformationPage} />
           <Route path="/question" component={QuestionPage} />
           <Route path="/login" component={Login} />
+          <Route path="/logout" component={Logout} />
           <Route path="/result" component={ResultPage} />
           <Route path="/test-series" component={TestSeriesPage} />
         </div>
