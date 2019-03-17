@@ -3,7 +3,7 @@ import '../assests/css/question_page.css'
 import Cookies from 'js-cookie';
 import ReactHtmlParser from 'react-html-parser';
 
-export default class QuestionPage extends Component {
+export default class ReviewPage extends Component {
 
     constructor(props) {
       super(props);
@@ -16,39 +16,37 @@ export default class QuestionPage extends Component {
           firstQuestionPage: false
       };
     }
-
     getQuestion = (data) => {
-        if(Cookies.get("result_page")) {
-            this.props.history.push('/result');
-        } else {
-            return fetch('/api/question/', {
-                method: 'POST',
-                credentials: 'include',
-                headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': Cookies.get('csrftoken')
-                        },
-                body: JSON.stringify(data),
-            }).then((response) => {
-                if (response.status === 403) {
-                    throw new Error("User not logged in. Please login");
-                } else if (response.status === 204) {
-                    this.props.history.push('/result')
-                } else if (response.status === 200) {
-                    return response.json();
-                } else {
-                    throw new Error('Something went wrong');
-                }
-            }).then((responseJson) => {
-                  this.setData(responseJson)
-            }).catch((error) =>{
-                if (error.message === "User not logged in. Please login") {
-                    this.props.history.push('/login')
-                }
-                console.error(error);
-            });
-         }
+        return fetch('/api/review/', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': Cookies.get('csrftoken')
+                    },
+            body: JSON.stringify(data),
+        }).then((response) => {
+            if (response.status === 403) {
+                throw new Error("User not logged in. Please login");
+            } else if (response.status === 400) {
+                this.props.history.push('/test-series')
+            } else if (response.status === 204) {
+                this.props.history.push('/result')
+            } else if (response.status === 200) {
+                return response.json();
+            } else {
+                throw new Error('Something went wrong');
+            }
+        }).then((responseJson) => {
+              this.setData(responseJson)
+        }).catch((error) =>{
+            if (error.message === "User not logged in. Please login") {
+                this.props.history.push('/login')
+            }
+            console.error(error);
+        });
  }
+
     setData = (data) => {
         this.setState({
             topic: data.topic,
@@ -68,17 +66,14 @@ export default class QuestionPage extends Component {
     }
 
     isFirstQuestionPage = () => {
-        // debugger;
-        // return this.state.questionNo == 1
         this.setState({ firstQuestionPage: this.state.questionNo === 1});
     }
 
     nextQuestion = event => {
       event.preventDefault();
       const data = {
-        "action":"next",
-        "answer": this.state.answer
-      } ;
+        "action":"next"
+      };
       this.getQuestion(data);
       this.setState({ answer: null});
     }
@@ -87,9 +82,8 @@ export default class QuestionPage extends Component {
       event.preventDefault();
       console.log(this.state.questionNo);
       const data = {
-        "action":"prev",
-        "answer": this.state.answer
-      } ;
+        "action":"prev"
+      };
       this.getQuestion(data)
       this.setState({ answer: null});
     }
@@ -101,9 +95,7 @@ export default class QuestionPage extends Component {
         this.getQuestion(data);
 
     }
-
     handleOnChange = (e) => {
-        // e.preventDefault();
         console.log('selected option', e.target.value);
         this.setState({ answer: e.target.value});
     }
@@ -135,8 +127,11 @@ export default class QuestionPage extends Component {
                     <div className="options">
                         {this.state.options.map((d, idx) => {
                             return (
-                                <label className="container" key={d.id} >  {d.type === "Image" ? <img src={ d.choice } alt="Diagram" className="question-image"/> : <span>{ReactHtmlParser(d.choice)}</span>}
-                                    <input type="radio" name="radio" key={d.id} value={ d.id } checked={d.id == this.state.answer} onChange={(e) => this.handleOnChange(e)}/>
+                                <label className="container" key={d.id} >
+                                    {d.type === "Image" ? <img src={ d.choice } alt="Diagram" className="question-image"/> : <span>{ReactHtmlParser(d.choice)}</span>}
+                                    {d.is_choice_correct &&
+                                    <span className="green-tick">&#10004;</span>}
+                                    <input disabled type="radio" name="radio" key={d.id} value={ d.id } checked={d.id == this.state.answer} onChange={(e) => this.handleOnChange(e)}/>
                                     <span className="checkmark"></span>
                                 </label>
                             )

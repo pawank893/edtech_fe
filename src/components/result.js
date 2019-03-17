@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../assests/css/result.css";
 import Cookies from 'js-cookie';
 import Header from './header';
+import { Link } from 'react-router-dom';
 
 
 class Result extends Component {
@@ -59,7 +60,7 @@ class Result extends Component {
             <img src="https://cdn.getvero.com/assets/logo-white-2dde46947ccac730f7d24ac88f4a08c8.svg" alt="Logo white"/>
           </div>
         </div>
-        <div className="entry-page entry-single-column" >
+        <div className="entry-page entry-single-column review-container" >
             <div className="form-box">
                 <h4 className="center-text">
                     Test series result
@@ -80,6 +81,16 @@ class Result extends Component {
                 <div className="values">
                     <label className="result-label">Wrong answer:</label>
                     <span className="result-value">{this.state.wrong_choices}</span>
+                </div>
+            </div>
+
+            <div className="navigation">
+                <div className="prev center-dev">
+                    <div className="form-group submit-btn">
+                        <Link to="/review">
+                            <input type="submit" name="commit" value="Review" className="form-box-btn" />
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

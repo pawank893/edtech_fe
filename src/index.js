@@ -13,6 +13,7 @@ import QuestionPage from './components/question_page'
 import ResultPage from './components/result'
 import TestSeriesPage from './components/test_series'
 import Logout from './components/logout'
+import ReviewPage from './components/review'
 
 
 const routing = (
@@ -26,6 +27,7 @@ const routing = (
           <Route path="/logout" component={Logout} />
           <Route path="/result" component={ResultPage} />
           <Route path="/test-series" component={TestSeriesPage} />
+          <Route path="/review" component={ReviewPage} />
         </div>
       </Router>
      </div>

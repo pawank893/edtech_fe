@@ -144,3 +144,24 @@ input[type="text"] {
     margin: -8px;
     padding-right: 10px;
 }
+
+.green-tick {
+    padding-left: 15px;
+    color: green;
+}
+
+.center-dev {
+    justify-content: center;
+}
+
+.review-container .form-box-btn {
+    margin-top: 15px;
+    width: 100%;
+    padding: 18px 20px;
+    border: 0;
+    background: #6fd350;
+    color: #2f6e1c;
+    font-weight: 600;
+    border-radius: 3px;
+    font-size: 17px;
+}
