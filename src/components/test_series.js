@@ -13,6 +13,7 @@ export default class TestSeriesPage extends Component {
     }
 
     componentDidMount = (event) => {
+            Cookies.remove("result_page")
       return fetch('/api/test-series/', {
         method: 'GET',
         credentials: 'include',

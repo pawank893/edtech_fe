@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 import './index.css'
-import App from './App'
 import Login from './components/login';
 import * as serviceWorker from './serviceWorker';
 
@@ -13,7 +12,6 @@ import ProductInformationPage from './components/product_information_page'
 import QuestionPage from './components/question_page'
 import ResultPage from './components/result'
 import TestSeriesPage from './components/test_series'
-import Header from './components/header'
 import Logout from './components/logout'
 
 

@@ -21,6 +21,7 @@ class Logout extends Component {
       });
   }
   componentDidMount() {
+    Cookies.remove("result_page")
     this.handleLogout();
   }
 

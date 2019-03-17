@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import '../assests/css/home_page.css'
 import Header from './header';
+import Cookies from 'js-cookie';
 
 export default class HomePage extends Component {
+
+    componentDidMount = () => {
+        Cookies.remove("result_page")
+    }
+
   render() {
     return (
       <div className="homePageContainer">

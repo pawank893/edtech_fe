@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "../assests/css/result.css";
 import Cookies from 'js-cookie';
 import Header from './header';
@@ -28,6 +27,7 @@ class Result extends Component {
         if (response.status === 403) {
             throw new Error("User not logged in. Please login");
         } else if (response.status === 200) {
+            Cookies.set("result_page", true)
             return response.json();
         } else {
             throw new Error('Something went wrong');

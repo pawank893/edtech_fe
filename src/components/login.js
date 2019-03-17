@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import Header from './header';
 import "../assests/css/login.css";
+import Cookies from 'js-cookie';
 
 class Login extends Component {
   constructor(props) {
@@ -10,6 +10,10 @@ class Login extends Component {
         email: "",
         password: ""
     };
+  }
+
+  componentDidMount = () => {
+      Cookies.remove("result_page")
   }
 
   validateForm() {

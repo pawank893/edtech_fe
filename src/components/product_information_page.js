@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import Image1 from '../assests/images/homePageImage.jpeg'
-import Image2 from '../assests/images/homePageImage.jpeg'
-import Image3 from '../assests/images/homePageImage.jpeg'
 import '../assests/css/product_information_page.css'
 import Header from './header';
+import Cookies from 'js-cookie';
 
 
 export default class ProductInformationPage extends Component {
-
+    componentDidMount = () => {
+        Cookies.remove("result_page")
+    }
   render () {
     return (
         <div className="productInfoContainer">
