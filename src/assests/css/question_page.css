@@ -64,6 +64,9 @@
     align-items: center;
     margin: 20px 10px;
     margin-left: 0px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #212121;
 }
 .questionContent{
     padding : 30px;
@@ -138,7 +141,9 @@
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 19px;
+    color: #212121;
+    font-weight: 300;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
