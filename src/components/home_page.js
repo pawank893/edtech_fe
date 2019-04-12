@@ -16,13 +16,13 @@ export default class HomePage extends Component {
             <Header />
           </div>
           <div className="title homePageElem">
-            <h2>Title</h2>
+            <h2>Personalized NEET Prep That Adapts to You</h2>
           </div>
           <div className="imageContainer homePageElem">
-            <img  className="homePageImage" src="https://s3.us-east-2.amazonaws.com/edtech-ameltus/home_page.jpeg" alt="Home" />
+            <img  className="homePageImage" src="https://cdn-imgix-open.ameltus.com/home_page.jpeg" alt="Home" />
           </div>
           <div className="descriptionContainer homePageElem">
-            <span>Description</span>
+            <span>AMELTUS will personalize a study mission tailored to your weaknesses, adapting with each practice test you take. See progress where it matters most.</span>
           </div>
     </div>
     )
