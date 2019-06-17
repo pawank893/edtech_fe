@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from './header';
 import "../assests/css/login.css";
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 
 class Signup extends Component {
   constructor(props) {
@@ -75,8 +76,13 @@ class Signup extends Component {
                         <label className="small">Password</label>
                         <input className="form-control flat-input" type="password" id="password"  onChange={this.handleChange}/>
                     </div>
-                    <div className="form-group submit-btn">
-                        <input type="submit" name="commit" value="Sign Up" className="form-box-btn" disabled={!this.validateForm()}/>
+                    <div className="form-group submit-btn sign-in-button">
+                        <input type="submit" name="commit" value="Sign Up" className="form-box-btn sign-in-input" disabled={!this.validateForm()}/>
+                    </div>
+                    <div className="sign-up-link text-center">
+                        <Link to="/login">
+                            <span>Already have an account? Login here</span>
+                        </Link>
                     </div>
                 </form>
             </div>

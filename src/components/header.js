@@ -29,7 +29,7 @@ export default class Header extends Component {
             :
                 <div className="headerElem loginContainer">
                     <Link to="/login">
-                        <span className="text logintext">Login</span>
+                        <span className="text logintext">Login & signup</span>
                     </Link>
                 </div>
             }

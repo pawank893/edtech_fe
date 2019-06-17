@@ -1,3 +1,17 @@
 .login{
   width: 100%;
 }
+
+div.form-group.submit-btn.sign-in-button > input.sign-in-input {
+  width: 69%;
+}
+
+.sign-in-button {
+  text-align: center;
+}
+
+.sign-up-link {
+  color: #2874f0;
+  font-weight: 500;
+  padding-top: 15px;
+}
